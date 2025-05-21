@@ -2,34 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For My Love 💖</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Comic Sans MS', cursive;
-      background: linear-gradient(to right, #fff0f5, #ffe6e6);
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #ffccf2);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      overflow: hidden;
-      transition: background 1s ease;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
     }
 
     .heart {
-      width: 100px;
-      height: 90px;
+      width: 80px;
+      height: 70px;
       position: relative;
       animation: heartbeat 1s infinite;
-      margin-bottom: 30px;
+      margin: 20px 0;
     }
 
     .heart::before,
     .heart::after {
       content: "";
-      width: 100px;
-      height: 90px;
+      width: 80px;
+      height: 70px;
       position: absolute;
       top: 0;
       left: 0;
@@ -51,41 +53,42 @@
         transform: scale(1);
       }
       50% {
-        transform: scale(1.2);
+        transform: scale(1.3);
       }
     }
 
-    h1, p {
+    h1 {
+      font-size: 1.8em;
       color: #ff66a3;
-      text-align: center;
       margin: 10px;
     }
 
     p {
-      color: #ff85a2;
+      color: #ff80bf;
       font-size: 1.2em;
-      max-width: 300px;
+      padding: 0 20px;
+      margin: 10px 0;
     }
 
     button {
       background-color: #ff99cc;
       border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
+      padding: 12px 24px;
+      border-radius: 30px;
       color: white;
-      font-size: 1em;
+      font-size: 1.1em;
+      margin: 20px;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       transition: transform 0.2s;
     }
 
     button:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
     .hidden-message {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
       transition: opacity 1s ease, transform 1s ease;
       pointer-events: none;
     }
@@ -96,33 +99,34 @@
       pointer-events: auto;
     }
 
-    .heart-big {
-      margin-top: 20px;
+    .emoji {
       font-size: 2em;
       animation: float 2s infinite ease-in-out;
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-8px); }
     }
   </style>
 </head>
 <body>
-  <div class="heart"></div>
-  <h1>Hi Love 💕</h1>
-  <p>I have a little surprise for you!</p>
-  <button onclick="revealMessage()">Click to reveal</button>
 
-  <div class="hidden-message" id="hiddenMessage">
-    <h1>You Are My Everything 💘</h1>
-    <p>Every day with you is the best day of my life. I love you more than words can say. 💖</p>
-    <div class="heart-big">💗 💗 💗</div>
+  <div class="heart"></div>
+  <h1>Hi Luvvv 💕</h1>
+  <p>I made this just for you... because you deserve everything including me 💝</p>
+  <button onclick="showLove()">Tap to Reveal</button>
+
+  <div class="hidden-message" id="surprise">
+    <h1>I Love You! 💘</h1>
+    <p>You are the light in my life. Every day is better with you in it.</p>
+    <p>Thank you luvvvv N.A.Z 💘💘💘</p>
+    <div class="emoji">💗 💗 💗</div>
   </div>
 
   <script>
-    function revealMessage() {
-      document.getElementById('hiddenMessage').classList.add('revealed');
+    function showLove() {
+      document.getElementById("surprise").classList.add("revealed");
     }
   </script>
 </body>
