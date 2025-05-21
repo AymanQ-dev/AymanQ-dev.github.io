@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to right, #fff0f5, #ffe6e6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      transition: background 1s ease;
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      position: relative;
+      animation: heartbeat 1s infinite;
+      margin-bottom: 30px;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 100px;
+      height: 90px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: pink;
+      border-radius: 50px 50px 0 0;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .heart::after {
+      left: auto;
+      right: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    h1, p {
+      color: #ff66a3;
+      text-align: center;
+      margin: 10px;
+    }
+
+    p {
+      color: #ff85a2;
+      font-size: 1.2em;
+      max-width: 300px;
+    }
+
+    button {
+      background-color: #ff99cc;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .hidden-message {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+      pointer-events: none;
+    }
+
+    .hidden-message.revealed {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .heart-big {
+      margin-top: 20px;
+      font-size: 2em;
+      animation: float 2s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="heart"></div>
+  <h1>Hi Love 💕</h1>
+  <p>I have a little surprise for you!</p>
+  <button onclick="revealMessage()">Click to reveal</button>
+
+  <div class="hidden-message" id="hiddenMessage">
+    <h1>You Are My Everything 💘</h1>
+    <p>Every day with you is the best day of my life. I love you more than words can say. 💖</p>
+    <div class="heart-big">💗 💗 💗</div>
+  </div>
+
+  <script>
+    function revealMessage() {
+      document.getElementById('hiddenMessage').classList.add('revealed');
+    }
+  </script>
+</body>
+</html>
